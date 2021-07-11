@@ -8,7 +8,7 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 #src-link custom /usr/src/openwrt/custom-feed
 src-git kenzo https://github.com/kenzok8/openwrt-packages
 src-git small https://github.com/kenzok8/small
-src-git luci2 git://git.openwrt.org/project/luci2/ui.git
+#src-git luci2 git://git.openwrt.org/project/luci2/ui.git
 src-git opackages https://git.openwrt.org/feed/packages.git
 src-git oluci https://git.openwrt.org/project/luci.git
 src-git orouting https://git.openwrt.org/feed/routing.git

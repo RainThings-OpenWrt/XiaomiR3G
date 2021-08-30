@@ -59,11 +59,12 @@ jobs:
       working-directory: /mnt/workdir
       run: |
         df -hT $PWD
-        if [ ! -f "/mnt/workdir/openwrt" ];then
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        if [ ! -f "/mnt/workdir/openwrt" ]
+        then
+            git clone $REPO_URL -b $REPO_BRANCH openwrt
         else
-        cd /mnt/workdir/opwnwrt
-        git pull
+            cd /mnt/workdir/opwnwrt
+            git pull
         fi
         ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
 

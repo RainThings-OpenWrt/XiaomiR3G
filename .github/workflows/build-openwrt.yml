@@ -52,21 +52,21 @@ jobs:
         sudo -E apt-get -qq clean
         #docker image prune -a -f
         sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p $GITHUB_WORKSPACE/workdir
-        sudo chown $USER:$GROUPS $GITHUB_WORKSPACE/workdir
+        sudo mkdir -p /mnt/workdir
+        sudo chown $USER:$GROUPS /mnt/workdir
 
     - name: Clone source code
-      working-directory: $GITHUB_WORKSPACE/workdir
+      working-directory: /mnt/workdir
       run: |
         df -hT $PWD
-        if [ ! -d "$GITHUB_WORKSPACE/workdir/openwrt" ]
+        if [ ! -d "/mnt/workdir/openwrt" ]
         then
             git clone $REPO_URL -b $REPO_BRANCH openwrt
         else
-            cd $GITHUB_WORKSPACE/workdir/openwrt
+            cd /mnt/workdir/openwrt
             git pull
         fi
-        ln -sf $GITHUB_WORKSPACE/workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Load custom feeds
       run: |
